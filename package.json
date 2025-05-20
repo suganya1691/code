@@ -3,20 +3,33 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@faker-js/faker": "^9.8.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.9.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-error-boundary": "^6.0.0",
+    "react-redux": "^9.2.0",
     "react-scripts": "5.0.1",
+    "redux": "^5.0.1",
+    "redux-saga": "^1.3.0",
+    "reselect": "^5.1.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "setup": "node scripts/generate.js",
+    "start-server": "node server.js"
   },
   "eslintConfig": {
     "extends": [
@@ -35,5 +48,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.7",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "postcss-loader": "^8.1.1",
+    "tailwindcss": "^4.1.7"
   }
 }
