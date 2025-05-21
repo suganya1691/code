@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import useDebounce from "./hooks/useDebounce";
+import useDebounce from "../hooks/useDebounce";
 import { useEffect, useState } from "react";
 
 function SearchBar({searchText}){
