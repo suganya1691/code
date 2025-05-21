@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { useSelector ,useDispatch} from "react-redux";
 
@@ -50,4 +51,4 @@ function Pagination (){
     )
 }
 
-export default Pagination;
+export default React.memo(Pagination);

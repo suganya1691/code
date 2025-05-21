@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import React,{useState, useEffect, useCallback} from 'react';
 import { fetchEmployeesRequest } from "../redux/actions/employeeAction";
 import { useDispatch, useSelector } from "react-redux";
 import { getSelectedEmployee } from '../redux/selectors/employeeSelectors';
@@ -9,13 +9,15 @@ function EmployeeList({employees}){
     const selectedEmployee = useSelector(getSelectedEmployee);
     const sortOrder = useSelector((state) => state.employees.sortOrder);
     
-    function onSelect(employee){
+    const onSelect = useCallback((employee) =>{
       dispatch({type:'SET_SELECTED_EMPLOYEE',payload:employee});
-     }
-    function toggleSort(){
+     },[dispatch])
+
+    const toggleSort = useCallback(() =>{
       const sort = sortOrder === 'asc' ? 'desc' : 'asc';
       dispatch({type:'SET_SORT',payload:{sortOrder:sort}})
-    }
+    },[dispatch,sortOrder]);
+
     return(
       <>
         <div className="overflow-x-auto border rounded-lg mx-4">
@@ -23,8 +25,7 @@ function EmployeeList({employees}){
         <thead className="bg-gray-100">
           <tr>
             <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">ID</th>
-           {/* <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Photo</th> */}
-            <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700" onClick={toggleSort}>Name {sortOrder === "asc" ? "▲" : "▼"} </th>
+            <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700 cursor-pointer select-none"  title="Click to toggle sort" onClick={toggleSort}>Name {sortOrder === "asc" ? "▲" : "▼"} </th>
             <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Contact No</th>
             <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Address</th>
             
@@ -57,4 +58,4 @@ function EmployeeList({employees}){
   )
 }
 
-export default EmployeeList;
+export default React.memo(EmployeeList);

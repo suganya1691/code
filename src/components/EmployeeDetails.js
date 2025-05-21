@@ -1,10 +1,10 @@
+import React from 'react';
 import { useEffect, useState, useRef } from "react";
+import { formatDate } from "../utils/formatDate";
 function EmployeeDetails({employee,onClose}){
 
     const empModal = useRef(null);
     const clickOutside = (e) =>{
-        console.log('eeee', empModal.current)
-        console.log('eeee', e.target)
         if(empModal.current && !empModal.current.contains(e.target)){
             onClose();
         }
@@ -22,7 +22,7 @@ function EmployeeDetails({employee,onClose}){
             document.removeEventListener('keydown',handleEscape);
             document.removeEventListener('mousedown',clickOutside);
         }
-    },[])
+    },[onClose])
     return(
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4"
         role="dialog" aria-modal="true" >
@@ -34,7 +34,7 @@ function EmployeeDetails({employee,onClose}){
                 <img src={employee.avatar} alt={employee.firstName} className="w-24 h-24 mx-auto sm:mx-0 rounded border object-cover"/>
                 <p className="mt-2"><strong>Role:</strong> {employee.jobTitle}</p>
                 <p><strong>Age:</strong> {employee.age}</p>
-                <p><strong>Date Joined:</strong> {new Date(employee.dateJoined).toLocaleDateString()}</p>
+                <p><strong>Date Joined:</strong> {formatDate(employee.dateJoined)}</p>
                 </div>
                 <div className="flex-1">
                 <h2 className="text-lg sm:text-xl font-bold underline mb-2">
@@ -49,4 +49,4 @@ function EmployeeDetails({employee,onClose}){
     )
 }
 
-export default EmployeeDetails;
+export default React.memo(EmployeeDetails);
