@@ -1,6 +1,6 @@
 import { FETCH_EMPLOYEES_REQUEST, fetchEmployeesSuccess, fetchEmployeesFailure } from "../actions/employeeAction";
 import { takeLatest, put, call } from "redux-saga/effects";
-import axios from "axios";
+//import axios from "axios";
 
 function* fetchEmployees(){
     try{
@@ -9,7 +9,7 @@ function* fetchEmployees(){
         const data = yield response.json();
         yield put({
             type: 'FETCH_EMPLOYEES_SUCCESS',
-            payload: data, 
+            payload:data, 
           });
     }catch (error){
         console.log('Error',error.message)

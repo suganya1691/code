@@ -31,16 +31,16 @@ function EmployeeDetails({employee,onClose}){
                 onClick={onClose}>  &times; </button>
             <div className="flex flex-col sm:flex-row sm:items-start gap-4">
                 <div className="flex-shrink-0 text-center sm:text-left">
-                <img src={employee.avatar} alt={employee.firstName} className="w-24 h-24 mx-auto sm:mx-0 rounded border object-cover"/>
-                <p className="mt-2"><strong>Role:</strong> {employee.jobTitle}</p>
-                <p><strong>Age:</strong> {employee.age}</p>
-                <p><strong>Date Joined:</strong> {formatDate(employee.dateJoined)}</p>
+                <img src={employee?.avatar} alt={employee?.firstName} className="w-24 h-24 mx-auto sm:mx-0 rounded border object-cover"/>
+                <p className="mt-2"><strong>Role:</strong> {employee?.jobTitle}</p>
+                <p><strong>Age:</strong> {employee?.age}</p>
+                <p><strong>Date Joined:</strong> {formatDate(employee?.dateJoined)}</p>
                 </div>
                 <div className="flex-1">
                 <h2 className="text-lg sm:text-xl font-bold underline mb-2">
-                    {employee.firstName} {employee.lastName}
+                    {employee?.firstName} {employee?.lastName}
                 </h2>
-                <p className="text-sm text-gray-700">{employee.bio}</p>
+                <p className="text-sm text-gray-700">{employee?.bio}</p>
                 </div>
             </div>
             </div>
