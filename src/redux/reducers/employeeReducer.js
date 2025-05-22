@@ -36,7 +36,7 @@ import { FETCH_EMPLOYEES_REQUEST,
         case CLEAR_SELECTED_EMPLOYEE:
             return {...state, selectedEmployee:null}
         case SET_SEARCH_TEXT:
-            return{...state,searchText:action.payload};
+            return{...state,searchText:action.payload,currentPage:1};
         case SET_PAGE:
             return{...state,currentPage:action.payload};
         case SET_SORT:
