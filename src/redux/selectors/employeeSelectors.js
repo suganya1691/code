@@ -23,12 +23,6 @@ export const getFiltered = createSelector([getAll, getQuery], (all, query) =>{
   });
 });
 
-/*export const getSorted = createSelector([getFiltered, getSort], (emps, sort) => {
-  const sorted = [...emps];
-  if (sort === "asc") return sorted.sort((a, b) => a.firstName.localeCompare(b.firstName));
-  if (sort === "desc") return sorted.sort((a, b) => b.firstName.localeCompare(a.firstName));
-  return sorted;
-});*/
 
 
 export const getSorted = createSelector(

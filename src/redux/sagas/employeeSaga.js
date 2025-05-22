@@ -2,7 +2,7 @@ import { FETCH_EMPLOYEES_REQUEST, fetchEmployeesSuccess, fetchEmployeesFailure }
 import { takeLatest, put, call } from "redux-saga/effects";
 //import axios from "axios";
 
-function* fetchEmployees(){
+export function* fetchEmployees(){
     try{
         console.log('Running saga')
         const response = yield call(fetch,'http://localhost:4000/api/employees'); 

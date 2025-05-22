@@ -33,6 +33,7 @@ describe('EmployeeList Component', () => {
       employees: {
         sortOrder: 'asc',
         selectedEmployee: null,
+        sortBy:'id'
       },
     });
     store.dispatch = jest.fn();
@@ -52,12 +53,14 @@ describe('EmployeeList Component', () => {
     expect(screen.getByText('456 Side St')).toBeInTheDocument();
 
     // Simulate sort toggle
-    const nameHeader = screen.getByTitle('Click to toggle sort');
-    fireEvent.click(nameHeader);
+    const sortButtons = screen.getAllByTitle('Click to toggle sort');
+    expect(sortButtons.length).toBeGreaterThan(1);
 
+  // Simulate a click on the first one
+  fireEvent.click(sortButtons[0]);
     expect(store.dispatch).toHaveBeenCalledWith({
       type: 'SET_SORT',
-      payload: { sortOrder: 'desc' },
+      payload: { sortOrder: 'desc', sortBy:'id' },
     });
 
     // Simulate employee row click
