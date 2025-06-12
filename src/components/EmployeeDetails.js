@@ -4,12 +4,13 @@ import { formatDate } from "../utils/formatDate";
 function EmployeeDetails({employee,onClose}){
 
     const empModal = useRef(null);
-    const clickOutside = (e) =>{
+   
+    useEffect(()=>{
+         const clickOutside = (e) =>{
         if(empModal.current && !empModal.current.contains(e.target)){
             onClose();
         }
-    }
-    useEffect(()=>{
+         }   
         const handleEscape = (e) =>{
             if(e.key === 'Escape'){
                 onClose();
@@ -22,7 +23,7 @@ function EmployeeDetails({employee,onClose}){
             document.removeEventListener('keydown',handleEscape);
             document.removeEventListener('mousedown',clickOutside);
         }
-    },[onClose, clickOutside])
+    },[onClose])
     return(
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4"
         role="dialog" aria-modal="true" >

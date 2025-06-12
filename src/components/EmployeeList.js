@@ -34,7 +34,7 @@ function EmployeeList({employees}){
           </tr>
         </thead>
         <tbody className="bg-white  divide-gray-200">
-          {employees.length == 0 && (
+          {employees.length === 0 && (
             <div className="text-center text-gray-600 py-4">
                No results found matching your search.
             </div>
