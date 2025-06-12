@@ -1,4 +1,4 @@
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 
 function useDebounce (input,delay){
     const[debouncedValue,setDebouncedValue]= useState('');
@@ -11,7 +11,7 @@ function useDebounce (input,delay){
             clearTimeout(timeOut);
         }
 
-    },[input])    
+    },[input,delay])    
     return debouncedValue;
 }
 

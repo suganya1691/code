@@ -18,7 +18,7 @@ function EmployeeList({employees}){
       const clickedHeader = e.target.getAttribute('data-field');
       const sort = sortOrder === 'asc' ? 'desc' : 'asc';
       dispatch({type:'SET_SORT',payload:{sortOrder:sort, sortBy:clickedHeader }})
-    },[dispatch,sortOrder,sortBy]);
+    },[dispatch,sortOrder]);
 
     return(
       <>

@@ -9,7 +9,7 @@ function SearchBar({searchText}){
     const debouncedText = useDebounce(input,500);
     useEffect(() => {
         dispatch({type:'SET_SEARCH_TEXT', payload:debouncedText})
-    },[debouncedText])
+    },[debouncedText,dispatch])
     return(
         <>
         <input className='border border-gray-900 rounded px-2' type='text' placeholder='Search Employee' value={input} onChange={(e) => setInput(e.target.value)}></input>
