@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { formatDate } from "../utils/formatDate";
 function EmployeeDetails({employee,onClose}){
 

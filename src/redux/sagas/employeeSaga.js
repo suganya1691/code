@@ -1,4 +1,4 @@
-import { FETCH_EMPLOYEES_REQUEST, fetchEmployeesSuccess, fetchEmployeesFailure } from "../actions/employeeAction";
+import { FETCH_EMPLOYEES_REQUEST } from "../actions/employeeAction";
 import { takeLatest, put, call } from "redux-saga/effects";
 //import axios from "axios";
 

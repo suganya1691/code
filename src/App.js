@@ -1,6 +1,6 @@
-import logo from './logo.svg';
+
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { fetchEmployeesRequest } from "./redux/actions/employeeAction";
 import { useDispatch, useSelector } from "react-redux";
 import EmployeeList from './components/EmployeeList';
@@ -20,7 +20,7 @@ function FallBackComponent({error}){
 function App() {
 
   const dispatch = useDispatch();
-  const {companyInfo,loading,employees,searchText,error } = useSelector( (state) => state.employees || {} );
+  const {companyInfo,loading,searchText,error } = useSelector( (state) => state.employees || {} );
   const processedEmployees= useSelector(getPaginated);
   const selectedEmployee = useSelector(getSelectedEmployee);
  

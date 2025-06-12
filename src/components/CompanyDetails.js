@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { formatDate } from '../utils/formatDate';
 
 function CompanyDetails({companyInfo}){

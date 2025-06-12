@@ -1,5 +1,4 @@
-import React,{useState, useEffect, useCallback} from 'react';
-import { fetchEmployeesRequest } from "../redux/actions/employeeAction";
+import React,{ useCallback} from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getSelectedEmployee } from '../redux/selectors/employeeSelectors';
 
